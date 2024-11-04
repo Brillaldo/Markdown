@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,10 +19,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  let header = (
+    <header>
+    <Link href={'/'}>
+    <h1>The bubbly baker</h1>
+    </Link>
+    
+    </header>
+  )
+
+  let footer = (
+    <footer>
+      <p> Made with 0</p>
+    </footer>
+  )
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        {header}
+      {children}
+      {footer}
       </body>
     </html>
   );
